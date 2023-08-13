@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Http\Requests\PostRequest; 
 use Illuminate\Http\Request;
 
 
@@ -25,7 +26,7 @@ public function create()
     return view('posts.create');
 }
 
-public function store(Request $request, Post $post)
+public function store(PostRequest $request, Post $post)
 {
     $input = $request['post'];
     $post->fill($input)->save();
